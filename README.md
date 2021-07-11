@@ -22,6 +22,8 @@ Furthermore, I've restricted the feature set of the interpreter to features that
 
 Be warned: the interpreter is not fast, by design. At any instance where I needed to make a tradeoff between speed and memory usage, I often decided in favor of low memory consumption. For example, all pointers are compressed, to make a cons cell fit in less than eight bytes--doing this, of course, slows down execution a bit. Technically, Skyland LISP can run with less than 8kb of memory, and still allocate one hundred or so values. In practice, I've given the interpreter at least 26kb to work with.
 
+TLDR; just follow the style of the existing scripts in the repo, and you should be fine. Use the (print ...) function to write stuff to sram if you are not sure why something isn't working. You can also try stuff out in a LISP REPL while the game is running, but you would need to splice an RS232 cable into a gba link cable, as the game currently only provides a repl over UART.
+
 ### Symbol Usage
 
 The interpreter interns strings, otherwise, variable lookup would be painfully slow. The interpreter only reserves 2kb for internalized strings, though, so try to limit the number of variable names in your programs.
