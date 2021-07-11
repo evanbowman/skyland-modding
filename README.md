@@ -16,8 +16,12 @@ Last summer (2020), I created a LISP interpreter for one of my previous projects
 
 * Garbage Collected
 * Single namespace for functions and data
-* Dynamic-scope
+* Dynamic-scope (via let expressions)
 
 Furthermore, I've restricted the feature set of the interpreter to features that are easy to implement on a Gameboy Advance, within reason. For example, I did not include floating point values or bignums; the only numeric type is a signed 32 bit integer.
 
 Be warned: the interpreter is not fast, by design. At any instance where I needed to make a tradeoff between speed and memory usage, I often decided in favor of low memory consumption. For example, all pointers are compressed, to make a cons cell fit in less than eight bytes--doing this, of course, slows down execution a bit. Technically, Skyland LISP can run with less than 8kb of memory, and still allocate one hundred or so values. In practice, I've given the interpreter at least 26kb to work with.
+
+### Symbol Usage
+
+The interpreter interns strings, otherwise, variable lookup would be painfully slow. The interpreter only reserves 2kb for internalized strings, though, so try to limit the number of variable names in your programs.
