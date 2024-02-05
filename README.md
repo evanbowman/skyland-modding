@@ -7,3 +7,7 @@ You'll need python installed. You might also want an installation of lua to run 
 
 2) Next, you may edit any of the scripts in the unpacked rom filesystem that you want to change.
 Then, run `./compile.sh`, to pack everything back up into a Skyland.gba rom!
+
+## Note:
+
+If for some reason skylandgame.io is down, you may drop your own copy of Skyland.gba into this folder and comment out the curl command in update.sh.
